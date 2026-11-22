@@ -10,4 +10,4 @@ All notable changes to this package are listed here. It follows [Semantic Versio
 - Retries with `Retry-After` and exponential backoff.
 - Cursor pagination with `IAsyncEnumerable` (`ListAutoPagingAsync`).
 - Webhook signature verification (`Webhooks.ConstructEvent`).
-- C# and Visual Basic samples.
+- C# and Visual Basic examples.

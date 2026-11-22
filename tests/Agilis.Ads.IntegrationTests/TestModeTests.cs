@@ -46,6 +46,9 @@ public class TestModeTests
 
     private static string SampleImage => Path.Combine(AppContext.BaseDirectory, "sample-offer.png");
 
+    // Events need an image of at least 1280 x 720.
+    private static string SampleEventImage => Path.Combine(AppContext.BaseDirectory, "sample-event.png");
+
     [Fact]
     public async Task Reads()
     {
@@ -165,7 +168,7 @@ public class TestModeTests
                 StartsAt = start,
                 EndsAt = start.AddHours(3),
                 Url = "https://www.agilis.dating",
-                Image = FileUpload.FromPath(SampleImage),
+                Image = FileUpload.FromPath(SampleEventImage),
                 DryRun = true,
             });
             Assert.True(result.DryRun);

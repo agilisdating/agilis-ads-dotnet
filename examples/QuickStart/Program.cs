@@ -1,5 +1,5 @@
 // A short Test-mode tour of the SDK. Set AGILIS_API_KEY to a pk_test_ key, then:
-//   dotnet run --project samples/QuickStart
+//   dotnet run --project examples/QuickStart
 // It only reads, plus one dry run that creates and charges nothing.
 using System;
 using System.IO;

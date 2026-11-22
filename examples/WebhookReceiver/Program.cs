@@ -1,5 +1,5 @@
 // A minimal webhook receiver. Set AGILIS_WEBHOOK_SECRET to your endpoint's signing secret, then:
-//   dotnet run --project samples/WebhookReceiver
+//   dotnet run --project examples/WebhookReceiver
 // and point a TEST webhook endpoint at https://<your host>/webhooks/agilis.
 using System;
 using System.IO;

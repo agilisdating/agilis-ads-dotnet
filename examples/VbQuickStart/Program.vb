@@ -1,5 +1,5 @@
 ' The SDK from Visual Basic. Set AGILIS_API_KEY to a pk_test_ key, then:
-'   dotnet run --project samples/VbQuickStart
+'   dotnet run --project examples/VbQuickStart
 Imports System
 Imports System.Threading.Tasks
 Imports Agilis.Ads
