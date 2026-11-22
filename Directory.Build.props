@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Package advisories stay visible as warnings without failing the build. -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+    <Authors>Agilis Dating Ltd</Authors>
+    <Company>Agilis Dating Ltd</Company>
+    <Copyright>Copyright (c) 2026 Agilis Dating Ltd</Copyright>
+  </PropertyGroup>
+</Project>

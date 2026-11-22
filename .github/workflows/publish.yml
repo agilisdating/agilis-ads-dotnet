@@ -1,0 +1,51 @@
+name: Publish
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: nuget
+      url: https://www.nuget.org/packages/Agilis.Ads
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Check the tag matches the package version
+        run: |
+          version=$(grep -oPm1 '(?<=<Version>)[^<]+' src/Agilis.Ads/Agilis.Ads.csproj)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match the package version $version."
+            exit 1
+          fi
+
+      - name: Test
+        run: dotnet test tests/Agilis.Ads.Tests/Agilis.Ads.Tests.csproj --configuration Release
+
+      - name: Pack
+        run: dotnet pack src/Agilis.Ads/Agilis.Ads.csproj --configuration Release --output artifacts
+
+      - name: Push to NuGet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if [ -z "$NUGET_API_KEY" ]; then
+            echo "The NUGET_API_KEY secret is not set."
+            exit 1
+          fi
+          dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
