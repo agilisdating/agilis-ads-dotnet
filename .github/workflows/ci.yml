@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build:
+    name: Build, format and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore Agilis.Ads.sln
+
+      - name: Format
+        run: dotnet format Agilis.Ads.sln --verify-no-changes --no-restore
+
+      - name: Build
+        run: dotnet build Agilis.Ads.sln --configuration Release --no-restore
+
+      - name: Test on .NET 8
+        run: dotnet test tests/Agilis.Ads.Tests/Agilis.Ads.Tests.csproj --configuration Release --no-build --framework net8.0 --logger "console;verbosity=normal"
+
+      - name: Test on .NET 10
+        run: dotnet test tests/Agilis.Ads.Tests/Agilis.Ads.Tests.csproj --configuration Release --no-build --framework net10.0 --logger "console;verbosity=normal"
+
+      - name: Build the Visual Basic sample
+        run: dotnet build samples/VbQuickStart/VbQuickStart.vbproj --configuration Release --no-restore
+
+      - name: Pack
+        run: dotnet pack src/Agilis.Ads/Agilis.Ads.csproj --configuration Release --no-build --output artifacts
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: artifacts/
+
+  integration:
+    name: Integration (Test mode)
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      AGILIS_TEST_API_KEY: ${{ secrets.AGILIS_TEST_API_KEY }}
+    steps:
+      - name: Check for a Test-mode key
+        id: key
+        run: |
+          if [ -z "$AGILIS_TEST_API_KEY" ]; then
+            echo "AGILIS_TEST_API_KEY is not set: skipping the integration run."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          case "$AGILIS_TEST_API_KEY" in
+            pk_test_*) echo "present=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "AGILIS_TEST_API_KEY must be a Test-mode (pk_test_) key; refusing to run."; exit 1 ;;
+          esac
+
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.present == 'true'
+
+      - uses: actions/setup-dotnet@v4
+        if: steps.key.outputs.present == 'true'
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Integration tests
+        if: steps.key.outputs.present == 'true'
+        run: dotnet test tests/Agilis.Ads.IntegrationTests/Agilis.Ads.IntegrationTests.csproj --configuration Release --logger "console;verbosity=normal"

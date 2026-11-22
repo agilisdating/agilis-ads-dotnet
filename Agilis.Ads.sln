@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D806F2F6-75C9-429D-8B40-4E3406A692AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis.Ads", "src\Agilis.Ads\Agilis.Ads.csproj", "{6ABF2FD1-411E-4A94-B65B-9AE02008058B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AD0F6F9B-722D-4FDB-85E2-770F878884D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis.Ads.Tests", "tests\Agilis.Ads.Tests\Agilis.Ads.Tests.csproj", "{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilis.Ads.IntegrationTests", "tests\Agilis.Ads.IntegrationTests\Agilis.Ads.IntegrationTests.csproj", "{94564AC2-62B6-444B-BF6F-C96727E425FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3D89B873-4BBF-49E2-A8BC-259C972BA82E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStart", "samples\QuickStart\QuickStart.csproj", "{8073E67D-37A4-48FA-A4FE-6A081392CF6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebhookReceiver", "samples\WebhookReceiver\WebhookReceiver.csproj", "{9E9E10EC-631E-4357-BD57-EE222C3EFB87}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VbQuickStart", "samples\VbQuickStart\VbQuickStart.vbproj", "{047421DD-AD71-4A65-80FE-55A42267B1F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ABF2FD1-411E-4A94-B65B-9AE02008058B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABF2FD1-411E-4A94-B65B-9AE02008058B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABF2FD1-411E-4A94-B65B-9AE02008058B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABF2FD1-411E-4A94-B65B-9AE02008058B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94564AC2-62B6-444B-BF6F-C96727E425FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94564AC2-62B6-444B-BF6F-C96727E425FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94564AC2-62B6-444B-BF6F-C96727E425FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94564AC2-62B6-444B-BF6F-C96727E425FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8073E67D-37A4-48FA-A4FE-6A081392CF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8073E67D-37A4-48FA-A4FE-6A081392CF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8073E67D-37A4-48FA-A4FE-6A081392CF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8073E67D-37A4-48FA-A4FE-6A081392CF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9E10EC-631E-4357-BD57-EE222C3EFB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9E10EC-631E-4357-BD57-EE222C3EFB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9E10EC-631E-4357-BD57-EE222C3EFB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9E10EC-631E-4357-BD57-EE222C3EFB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{047421DD-AD71-4A65-80FE-55A42267B1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047421DD-AD71-4A65-80FE-55A42267B1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047421DD-AD71-4A65-80FE-55A42267B1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047421DD-AD71-4A65-80FE-55A42267B1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6ABF2FD1-411E-4A94-B65B-9AE02008058B} = {D806F2F6-75C9-429D-8B40-4E3406A692AD}
+		{CF3A894F-A2B3-4F2D-8D18-BF4BC4AB4DD6} = {AD0F6F9B-722D-4FDB-85E2-770F878884D5}
+		{94564AC2-62B6-444B-BF6F-C96727E425FC} = {AD0F6F9B-722D-4FDB-85E2-770F878884D5}
+		{8073E67D-37A4-48FA-A4FE-6A081392CF6B} = {3D89B873-4BBF-49E2-A8BC-259C972BA82E}
+		{9E9E10EC-631E-4357-BD57-EE222C3EFB87} = {3D89B873-4BBF-49E2-A8BC-259C972BA82E}
+		{047421DD-AD71-4A65-80FE-55A42267B1F5} = {3D89B873-4BBF-49E2-A8BC-259C972BA82E}
+	EndGlobalSection
+EndGlobal
