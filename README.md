@@ -64,7 +64,7 @@ var result = await client.Offers.CreateAsync(new OfferCreateParams
 Console.WriteLine($"{result.Price} {result.BalanceAfter}");
 ```
 
-Runnable samples are in [`samples/`](samples): a C# Test-mode tour (`QuickStart`), a webhook receiver (`WebhookReceiver`) and a Visual Basic program (`VbQuickStart`).
+Runnable examples are in [`examples/`](examples): a C# Test-mode tour (`QuickStart`), a webhook receiver (`WebhookReceiver`) and a Visual Basic program (`VbQuickStart`).
 
 ### Visual Basic
 
@@ -206,7 +206,7 @@ catch (RateLimitException ex)
 
 Agilis signs every webhook with the `Agilis-Signature` header. `Webhooks.ConstructEvent` checks it, in constant time, against the raw body and your endpoint's secret, accepts any matching `v1` signature (so a rolled secret keeps working during its overlap), refuses a timestamp more than 300 seconds from now, and returns the parsed `WebhookEvent`.
 
-A minimal ASP.NET Core receiver (the full one is [`samples/WebhookReceiver`](samples/WebhookReceiver)):
+A minimal ASP.NET Core receiver (the full one is [`examples/WebhookReceiver`](examples/WebhookReceiver)):
 
 ```csharp
 app.MapPost("/webhooks/agilis", async (HttpRequest request) =>

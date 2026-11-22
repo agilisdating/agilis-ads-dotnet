@@ -41,7 +41,7 @@ jobs:
         run: dotnet test tests/Agilis.Ads.Tests/Agilis.Ads.Tests.csproj --configuration Release --no-build --framework net10.0 --logger "console;verbosity=normal"
 
       - name: Build the Visual Basic sample
-        run: dotnet build samples/VbQuickStart/VbQuickStart.vbproj --configuration Release --no-restore
+        run: dotnet build examples/VbQuickStart/VbQuickStart.vbproj --configuration Release --no-restore
 
       - name: Pack
         run: dotnet pack src/Agilis.Ads/Agilis.Ads.csproj --configuration Release --no-build --output artifacts

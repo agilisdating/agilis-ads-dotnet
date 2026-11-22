@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\samples\QuickStart\sample-offer.png" Link="sample-offer.png" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\examples\QuickStart\sample-offer.png" Link="sample-offer.png" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="sample-event.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
